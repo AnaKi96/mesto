@@ -1,0 +1,22 @@
+.popup__submit-button {
+    width: 358px;
+    height: 50px;
+    font-family: 'Inter';
+    background-color: #000000;
+    color: #FFFF;
+    margin: 48px auto auto;
+    border: none;
+    border-radius: 2px;
+}
+
+.popup__submit-button:hover {
+    background-color:#000000;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__submit-button {
+        width: 248px;
+        margin: 48px auto auto;
+    }
+}

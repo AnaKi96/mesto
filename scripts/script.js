@@ -7,18 +7,28 @@ const popupFieldDescription = popup.querySelector('.popup__field_description');
 const profileName = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
 
-const popupToggle = function () {
-  popup.classList.toggle('popup_opened');
+function closePopup(popupExitButton) {
+  popup.classList.remove('popup_opened');
 }
+
+profileEditButton.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  profileName.textContent = popupFieldName.value;
+  profileDescription.textContent = popupFieldDescription.value;
+  popup.classList.add('popup_opened');
+})
+
+popupExitButton.addEventListener('click', function (evt) {
+  evt.preventDefault();
+  popup.classList.remove('popup_opened');
+  closePopup();
+})
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = popupFieldName.value;
   profileDescription.textContent = popupFieldDescription.value;
-  popupToggle();
+  closePopup();
 }
-
-profileEditButton.addEventListener('click', popupToggle);
-popupExitButton.addEventListener('click', popupToggle);
 
 formElement.addEventListener('submit', formSubmitHandler);
